@@ -292,7 +292,7 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
       </else>
     </choose>
   </macro>
-  <!--A macro 'issued' e utilizada quando desejamos que apareca apenas o ano-->
+  <!--A macro 'issued-year' e utilizada quando desejamos que apareca apenas o ano-->
   <macro name="issued-year">
     <choose>
       <if variable="issued" match="any">
@@ -429,6 +429,8 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Historico em negrito-->
             <text variable="note"/>
             <!--Campo 'extra' caso queira colocar alguma observacao-->
+            <text macro="access" suffix=". "/>
+            <!--URL, data do acesso-->
             <text macro="locators" suffix=". "/>
             <!--Dados complementares "secao, pagina"-->
           </group>
@@ -442,6 +444,8 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Titulo-->
             <text macro="issued" suffix=". "/>
             <!--data-->
+            <text macro="access" suffix=". "/>
+            <!--URL, data do acesso-->
             <text variable="note" suffix=". "/>
             <!--Campo 'extra' caso queira colocar alguma observacao-->
           </group>
@@ -459,6 +463,8 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Edicao-->
             <text macro="publisher" suffix=". "/>
             <!--Local, data, etc-->
+            <text macro="access" suffix=". "/>
+            <!--URL, data do acesso-->
             <text macro="locators"/>
             <!--Dados complementares "pagina, volume"-->
           </group>
@@ -484,6 +490,8 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Edicao-->
             <text macro="publisher" suffix=". "/>
             <!--Local, data, etc-->
+            <text macro="access" suffix=". "/>
+            <!--URL, data do acesso-->
             <text macro="locators" suffix=". "/>
             <!--Dados complementares "pagina, volume"-->
           </group>
@@ -501,6 +509,8 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Titulo da serie-->
             <text macro="edition" suffix=", "/>
             <!--Edicao-->
+            <text macro="access" suffix=". "/>
+            <!--URL, data do acesso-->
             <text macro="locators" suffix=", "/>
             <!--Dados complementares "pagina, volume"-->
             <text macro="issued" suffix=". "/>
@@ -518,6 +528,8 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Tipo-->
             <text macro="publisher" suffix="."/>
             <!--Local, data, etc-->
+            <text macro="access" suffix=". "/>
+            <!--URL, data do acesso-->
           </group>
         </else-if>
         <!-- Nao ha norma ABNT para manuscritos -->
@@ -535,7 +547,9 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <text macro="access" suffix=". "/>
             <!--URL, data do acesso-->
             <text macro="archive" suffix=". "/>
-            <!--Arquive-->
+            <!--Arquivo-->
+            <text macro="access" suffix=". "/>
+            <!--URL, data do acesso-->
           </group>
         </else-if>
         <!--Pagina da WEB-->
@@ -610,6 +624,8 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Editor-->
             <text macro="issued" prefix=", " suffix=". (Nota técnica)."/>
             <!--Data-->
+            <text macro="access" suffix=". "/>
+            <!--URL, data do acesso-->
           </group>
         </else-if>
         <!--Trabalho em anais de evento-->
