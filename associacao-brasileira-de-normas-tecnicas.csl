@@ -92,7 +92,7 @@ tendo as inicias separadas por ponto.-->
             <name-part name="family" text-case="uppercase"/>
             <name-part name="given"/>
           </name>
-          <et-al font-style="normal"/>
+          <et-al font-style="italic"/>
           <label form="short" prefix=" (" suffix=".)" text-case="capitalize-first"/>
           <substitute>
             <names variable="editor"/>
@@ -112,14 +112,14 @@ tendo as inicias separadas por ponto.-->
             <name-part name="family" text-case="uppercase"/>
             <name-part name="given"/>
           </name>
-          <et-al font-style="normal"/>
+          <et-al font-style="italic"/>
           <label form="short" prefix=" (" suffix=".)" text-case="lowercase"/>
         </names>
       </if>
       <else-if type="chapter" match="none">
         <names variable="editor" delimiter="; " prefix=" (" suffix=")">
           <name initialize="false" initialize-with=". " delimiter=", "/>
-          <et-al font-style="normal"/>
+          <et-al font-style="italic"/>
           <label form="short" prefix=", " text-case="capitalize-first" suffix="."/>
         </names>
       </else-if>
@@ -133,7 +133,7 @@ tendo as inicias separadas por ponto. -->
         <name-part name="given"/>
         <name-part name="family" text-case="capitalize-first"/>
       </name>
-      <et-al font-style="normal"/>
+      <et-al font-style="italic"/>
     </names>
   </macro>
   <!--A macro 'author' e responsavel por mostrar os nomes dos autores na bibliografia, serao no formato SOBRENOME, INICIAIS PRENOMES, tendo 
@@ -145,7 +145,7 @@ aparecera a expess o 'et. al.'. Na regra da ABNT 2023 essa expressao deve aparec
         <name-part name="family" text-case="uppercase"/>
         <name-part name="given"/>
       </name>
-      <et-al font-style="normal"/>
+      <et-al font-style="italic"/>
       <label form="short" prefix=" (" suffix=".)" text-case="uppercase"/>
       <substitute>
         <names variable="editor"/>
@@ -429,10 +429,10 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Historico em negrito-->
             <text variable="note"/>
             <!--Campo 'extra' caso queira colocar alguma observacao-->
-            <text macro="access" suffix=". "/>
-            <!--URL, data do acesso-->
             <text macro="locators" suffix=". "/>
             <!--Dados complementares "secao, pagina"-->
+            <text macro="access" suffix=". "/>
+            <!--URL, data do acesso-->
           </group>
         </if>
         <!--Mapa-->
@@ -463,10 +463,10 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Edicao-->
             <text macro="publisher" suffix=". "/>
             <!--Local, data, etc-->
-            <text macro="access" suffix=". "/>
-            <!--URL, data do acesso-->
             <text macro="locators"/>
             <!--Dados complementares "pagina, volume"-->
+            <text macro="access" suffix=". "/>
+            <!--URL, data do acesso-->
           </group>
         </else-if>
         <!--Capitulo-->
@@ -490,10 +490,10 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Edicao-->
             <text macro="publisher" suffix=". "/>
             <!--Local, data, etc-->
-            <text macro="access" suffix=". "/>
-            <!--URL, data do acesso-->
             <text macro="locators" suffix=". "/>
             <!--Dados complementares "pagina, volume"-->
+            <text macro="access" suffix=". "/>
+            <!--URL, data do acesso-->
           </group>
         </else-if>
         <!--Artigo de revista, jornal, etc-->
@@ -509,12 +509,12 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Titulo da serie-->
             <text macro="edition" suffix=", "/>
             <!--Edicao-->
-            <text macro="access" suffix=". "/>
-            <!--URL, data do acesso-->
             <text macro="locators" suffix=", "/>
             <!--Dados complementares "pagina, volume"-->
             <text macro="issued" suffix=". "/>
             <!--Data-->
+            <text macro="access" suffix=". "/>
+            <!--URL, data do acesso-->
           </group>
         </else-if>
         <!--Tese-->
