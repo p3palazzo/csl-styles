@@ -29,7 +29,7 @@
       </if>
       <else-if type="webpage post-weblog post" match="any">
         <group delimiter=". ">
-          <group>
+          <grou delimiter=" "p>
             <text term="available at" text-case="capitalize-first"/>
             <text variable="URL"/>
           </group>
@@ -86,8 +86,8 @@
   </macro>
   <macro name="publisher_thesis">
     <group delimiter=", ">
-      <text variable="publisher" form="long"/>
-      <text variable="publisher-place" form="long"/>
+      <text variable="publisher"/>
+      <text variable="publisher-place"/>
     </group>
   </macro>
   <macro name="edition">
@@ -132,8 +132,8 @@
             <group delimiter=". ">
               <group delimiter=". ">
                 <text variable="title" form="long"/>
-                <group delimiter=" ">
-                  <text term="in" form="short" text-case="capitalize-first" suffix=":"/>
+                <group delimiter=": ">
+                  <text term="in" form="short" text-case="capitalize-first"/>
                   <text macro="editor"/>
                 </group>
                 <group delimiter=", ">
@@ -170,9 +170,9 @@
             </group>
           </else-if>
           <else-if type="webpage post post-weblog" match="any">
-            <group delimiter=" ">
-              <text variable="title" form="long" suffix="."/>
-              <text variable="container-title" form="long" suffix="." text-case="title"/>
+            <group delimiter=". ">
+              <text variable="title" form="long"/>
+              <text variable="container-title" form="long" text-case="title"/>
             </group>
           </else-if>
           <else>
