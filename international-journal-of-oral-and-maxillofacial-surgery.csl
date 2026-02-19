@@ -90,25 +90,13 @@
       <text variable="publisher-place" form="long"/>
     </group>
   </macro>
-  <macro name="edition_book">
+
+  <macro name="edition">
     <choose>
       <if is-numeric="edition">
         <group delimiter=" ">
           <number variable="edition" form="ordinal"/>
-          <text term="edition" form="short"/>
-        </group>
-      </if>
-      <else>
-        <text variable="edition"/>
-      </else>
-    </choose>
-  </macro>
-  <macro name="edition_chapter">
-    <choose>
-      <if is-numeric="edition">
-        <group delimiter=" ">
-          <number variable="edition" form="ordinal"/>
-          <text term="edition" form="short"/>
+          <label variable="edition" form="short"/>
         </group>
       </if>
       <else>
@@ -133,8 +121,11 @@
           <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
             <group delimiter=". ">
               <text variable="title" form="long" font-style="italic"/>
-              <text variable="volume" prefix="vol. " form="long"/>
-              <text macro="edition_book"/>
+              <group delimiter=" ">
+                <label variable="volume" form="short"/>
+                <text variable="volume" form="short"/>
+              </group>
+              <text macro="edition"/>
               <text macro="publisher"/>
             </group>
           </if>
@@ -148,9 +139,12 @@
                 </group>
                 <group delimiter=", ">
                   <text variable="container-title" font-style="italic"/>
-                  <text variable="volume" form="long" prefix="vol. "/>
+                                <group delimiter=" ">
+                <label variable="volume" form="short"/>
+                <text variable="volume" form="short"/>
+              </group>
                 </group>
-                <text macro="edition_chapter"/>
+                <text macro="edition"/>
               </group>
               <text macro="publisher"/>
               <group delimiter=" ">
