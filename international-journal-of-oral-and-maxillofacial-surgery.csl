@@ -29,7 +29,7 @@
       </if>
       <else-if type="webpage post-weblog post" match="any">
         <group delimiter=". ">
-          <grou delimiter=" "p>
+          <group delimiter=" ">
             <text term="available at" text-case="capitalize-first"/>
             <text variable="URL"/>
           </group>
