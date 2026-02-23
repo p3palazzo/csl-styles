@@ -561,7 +561,7 @@
   <macro name="legal-cites">
     <choose>
       <if type="legal_case" match="any">
-        <group prefix=", " delimiter=" ">
+        <group prefix=" " delimiter=" ">
           <choose>
             <if variable="container-title">
               <text variable="volume"/>
