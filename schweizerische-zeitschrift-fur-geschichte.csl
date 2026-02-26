@@ -83,7 +83,7 @@
   </macro>
   <macro name="creator">
     <names variable="author">
-      <name et-al-min="4" et-al-use-first="1"/>
+      <name/>
       <label form="short" prefix=" (" suffix=")"/>
       <substitute>
         <names variable="editor"/>
@@ -94,7 +94,7 @@
   </macro>
   <macro name="creator-for-subsequent">
     <names variable="author">
-      <name form="short" et-al-min="4" et-al-use-first="1"/>
+      <name form="short"/>
       <label form="short" prefix=" (" suffix=")"/>
       <substitute>
         <names variable="editor"/>
@@ -359,12 +359,12 @@
       <if type="book" variable="author editor" match="all">
         <names variable="editor">
           <label form="verb-short" suffix=" "/>
-          <name et-al-min="4" et-al-use-first="1"/>
+          <name/>
         </names>
       </if>
     </choose>
   </macro>
-  <citation>
+  <citation et-al-min="4" et-al-use-first="1">
     <layout delimiter="; " suffix=".">
       <choose>
         <if position="ibid-with-locator">
