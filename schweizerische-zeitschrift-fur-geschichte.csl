@@ -302,10 +302,14 @@
       <if type="book chapter paper-conference entry-dictionary entry-encyclopedia" match="any">
         <group delimiter=", " prefix="(" suffix=")">
           <text variable="collection-title"/>
-          <group delimiter=" ">
-            <text term="number-of-volumes" form="short"/>
-            <text variable="collection-number"/>
-          </group>
+          <choose>
+            <if variable="collection-number">
+              <group delimiter=" ">
+                <text term="number-of-volumes" form="short"/>
+                <text variable="collection-number"/>
+              </group>
+            </if>
+          </choose>
         </group>
       </if>
     </choose>
@@ -352,7 +356,7 @@
   </macro>
   <macro name="book-editor">
     <choose>
-      <if type="book" match="any">
+      <if type="book" variable="author editor" match="all">
         <names variable="editor">
           <label form="verb-short" suffix=" "/>
           <name et-al-min="4" et-al-use-first="1"/>
