@@ -117,7 +117,7 @@
     <choose>
       <if type="chapter paper-conference" match="any">
         <names variable="editor">
-          <name et-al-min="4" et-al-use-first="1"/>
+          <name/>
           <label form="short" prefix=" (" suffix=")"/>
           <substitute>
             <names variable="container-author"/>
