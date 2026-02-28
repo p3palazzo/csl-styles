@@ -92,7 +92,6 @@ tendo as inicias separadas por ponto.-->
             <name-part name="family" text-case="uppercase"/>
             <name-part name="given"/>
           </name>
-          <et-al font-style="italic"/>
           <label form="short" prefix=" (" suffix=".)" text-case="capitalize-first"/>
           <substitute>
             <names variable="editor"/>
@@ -112,14 +111,12 @@ tendo as inicias separadas por ponto.-->
             <name-part name="family" text-case="uppercase"/>
             <name-part name="given"/>
           </name>
-          <et-al font-style="italic"/>
           <label form="short" prefix=" (" suffix=".)" text-case="lowercase"/>
         </names>
       </if>
       <else-if type="chapter" match="none">
         <names variable="editor" delimiter="; " prefix=" (" suffix=")">
           <name initialize="false" initialize-with=". " delimiter=", "/>
-          <et-al font-style="italic"/>
           <label form="short" prefix=", " text-case="capitalize-first" suffix="."/>
         </names>
       </else-if>
@@ -133,7 +130,6 @@ tendo as inicias separadas por ponto. -->
         <name-part name="given"/>
         <name-part name="family" text-case="capitalize-first"/>
       </name>
-      <et-al font-style="italic"/>
     </names>
   </macro>
   <!--A macro 'author' e responsavel por mostrar os nomes dos autores na bibliografia, serao no formato SOBRENOME, INICIAIS PRENOMES, tendo 
@@ -145,7 +141,6 @@ aparecera a expess o 'et. al.'. Na regra da ABNT 2023 essa expressao deve aparec
         <name-part name="family" text-case="uppercase"/>
         <name-part name="given"/>
       </name>
-      <et-al font-style="italic"/>
       <label form="short" prefix=" (" suffix=".)" text-case="uppercase"/>
       <substitute>
         <names variable="editor"/>
@@ -178,15 +173,12 @@ aparecera a expess o 'et. al.'. Na regra da ABNT 2023 essa expressao deve aparec
   </macro>
   <!--A macro 'access' e utilizada em arquivos de paginas da web. Ela e responsavel por mostrar a URL do site pesquisado e a data do acesso-->
   <macro name="access">
-    <group delimiter=". ">
-      <text variable="DOI" prefix="DOI: "/>
-      <text variable="URL" prefix="Disponível em: &lt;" suffix="&gt;"/>
-      <date variable="accessed" prefix="Acesso em: ">
-        <date-part name="day" suffix=" "/>
-        <date-part name="month" form="short" suffix=". " text-case="lowercase"/>
-        <date-part name="year"/>
-      </date>
-    </group>
+    <text variable="URL" prefix="Disponível em: &lt;" suffix="&gt;"/>
+    <date variable="accessed" prefix=". Acesso em: ">
+      <date-part name="day" suffix=" "/>
+      <date-part name="month" form="short" suffix=". " text-case="lowercase"/>
+      <date-part name="year"/>
+    </date>
   </macro>
   <!--A macro 'title' e responsavel por mostrar o titulo principal do arquivo. Em todos os tipos ele aparecera em negrito logo apos os nomes dos
 autores, exceto em arquivos do tipo 'artigo de jornal, artigo de revista, artigo de periodico, trabalho em evento', nesses arquivos eles irao aparecer em fonte normal.-->
@@ -295,7 +287,7 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
       </else>
     </choose>
   </macro>
-  <!--A macro 'issued-year' e utilizada quando desejamos que apareca apenas o ano-->
+  <!--A macro 'issued' e utilizada quando desejamos que apareca apenas o ano-->
   <macro name="issued-year">
     <choose>
       <if variable="issued" match="any">
@@ -434,8 +426,6 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Campo 'extra' caso queira colocar alguma observacao-->
             <text macro="locators" suffix=". "/>
             <!--Dados complementares "secao, pagina"-->
-            <text macro="access" suffix=". "/>
-            <!--URL, data do acesso-->
           </group>
         </if>
         <!--Mapa-->
@@ -447,8 +437,6 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Titulo-->
             <text macro="issued" suffix=". "/>
             <!--data-->
-            <text macro="access" suffix=". "/>
-            <!--URL, data do acesso-->
             <text variable="note" suffix=". "/>
             <!--Campo 'extra' caso queira colocar alguma observacao-->
           </group>
@@ -468,8 +456,6 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Local, data, etc-->
             <text macro="locators"/>
             <!--Dados complementares "pagina, volume"-->
-            <text macro="access" suffix=". "/>
-            <!--URL, data do acesso-->
           </group>
         </else-if>
         <!--Capitulo-->
@@ -495,8 +481,6 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Local, data, etc-->
             <text macro="locators" suffix=". "/>
             <!--Dados complementares "pagina, volume"-->
-            <text macro="access" suffix=". "/>
-            <!--URL, data do acesso-->
           </group>
         </else-if>
         <!--Artigo de revista, jornal, etc-->
@@ -516,8 +500,6 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Dados complementares "pagina, volume"-->
             <text macro="issued" suffix=". "/>
             <!--Data-->
-            <text macro="access" suffix=". "/>
-            <!--URL, data do acesso-->
           </group>
         </else-if>
         <!--Tese-->
@@ -531,8 +513,6 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Tipo-->
             <text macro="publisher" suffix="."/>
             <!--Local, data, etc-->
-            <text macro="access" suffix=". "/>
-            <!--URL, data do acesso-->
           </group>
         </else-if>
         <!-- Nao ha norma ABNT para manuscritos -->
@@ -550,9 +530,7 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <text macro="access" suffix=". "/>
             <!--URL, data do acesso-->
             <text macro="archive" suffix=". "/>
-            <!--Arquivo-->
-            <text macro="access" suffix=". "/>
-            <!--URL, data do acesso-->
+            <!--Arquive-->
           </group>
         </else-if>
         <!--Pagina da WEB-->
@@ -627,8 +605,6 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Editor-->
             <text macro="issued" prefix=", " suffix=". (Nota técnica)."/>
             <!--Data-->
-            <text macro="access" suffix=". "/>
-            <!--URL, data do acesso-->
           </group>
         </else-if>
         <!--Trabalho em anais de evento-->
